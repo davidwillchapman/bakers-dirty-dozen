@@ -1,15 +1,36 @@
 # Bakers Dirty Dozen
----
+
 ## Overview
+
 Web application to display the various league history and information for Baker's Dirty Dozen Fantasy Football League
 
-## Functionality
-- TODO: Hall of Fame (Win totals, points, championships etc.)
-- TODO: League History (Seasonal results, Rivalry Rankings, etc.)
-- TODO: League Info (League constitution, vote history, etc.)
-- TODO: Manager Info (Fine Grain info by Manager)
+## Basic Setup + POC (Unordered)
+
+-   Infrastructure Defined in Code (Terraform)
+-   Stage + Prod Environments
+-   POC Azure Function (GoLang)
+-   Home Page (React w/ Mui)
+-   Database Setup and Connection (Azure Cosmos DB)
+-   CI/CD Workflow for Deployments (Github Actions)
+-   Domain Connected
+
+## MVP
+
+-   League Info Page
+    -   League Overview
+    -   League Constitution
+
+## Additional Features
+
+-   Hall of Fame
+-   Hall of Shame
+-   League History
+-   Rivalry Rankings
+-   Manager Info
+-   Stat Sandbox
 
 ## Structure
-- Database Layer: PostgreSQL
-- Backend Layer: GoLang
-- Frontend Layer: React w/ Mui
+
+-   Database Layer: Azure Cosmos DB
+-   Backend Layer: GoLang
+-   Frontend Layer: React w/ Mui
