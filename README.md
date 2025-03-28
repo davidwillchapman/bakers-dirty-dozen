@@ -6,11 +6,9 @@ Web application to display the various league history and information for Baker'
 
 ## Basic Setup + POC (Unordered)
 
--   Infrastructure Defined in Code (Terraform)
--   Stage + Prod Environments
--   POC Azure Function (GoLang)
--   Home Page (React w/ Mui)
--   Database Setup and Connection (Azure Cosmos DB)
+-   Frontend (React w/ Mui)
+-   Backend (express.js)
+-   Database Setup and Connection (Mongo or SQLITE)
 -   CI/CD Workflow for Deployments (Github Actions)
 -   Domain Connected
 
@@ -31,6 +29,6 @@ Web application to display the various league history and information for Baker'
 
 ## Structure
 
--   Database Layer: Azure Cosmos DB
--   Backend Layer: GoLang
+-   Database Layer: Mongo
+-   Backend Layer: express.js
 -   Frontend Layer: React w/ Mui
