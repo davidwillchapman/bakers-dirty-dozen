@@ -1,11 +1,11 @@
 import "../App.css";
 
-export default function Home() {
+export default function Rules() {
     return (
         <>
             <main>
                 <section>
-                    <h2>Home Page</h2>
+                    <h2>Rules Page</h2>
                 </section>
             </main>
         </>

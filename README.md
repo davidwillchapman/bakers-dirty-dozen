@@ -16,7 +16,7 @@ Web application to display the various league history and information for Baker'
 
 -   League Info Page
     -   League Overview
-    -   League Constitution
+    -   League Rules
 
 ## Additional Features
 

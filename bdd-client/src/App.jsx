@@ -1,22 +1,37 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { Routes, Route } from "react-router";
 import Home from "./pages/Home.jsx";
-import { CssBaseline } from "@mui/material";
+import Rules from "./pages/Rules.jsx";
+import "./App.css";
+import Header from "./components/Header.jsx";
 
-const router = createBrowserRouter(
-    [
-        {
-            path: "/",
-            Component: Home,
-        },
-    ],
-    { basename: "/bakers-dirty-dozen" }
-);
+export const ROUTES = [
+    {
+        path: "/",
+        label: "Home",
+        component: Home,
+    },
+    {
+        path: "/rules",
+        label: "League Rules",
+        component: Rules,
+    },
+];
 
 export default function App() {
     return (
         <>
-            <CssBaseline />
-            <RouterProvider router={router} />
+            <Header />
+            <Routes>
+                {ROUTES.map((route) => {
+                    return (
+                        <Route
+                            path={route.path}
+                            key={"route-" + route.path}
+                            element={<route.component />}
+                        />
+                    );
+                })}
+            </Routes>
         </>
     );
 }
