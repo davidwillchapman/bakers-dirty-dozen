@@ -2,8 +2,8 @@ import React from "react";
 import NavBar from "./NavBar";
 
 export default function Header() {
-    const HEADER_IMG_LINK = import.meta.env.BASE_URL + "/dirty_dude.png";
-
+    const HEADER_IMG_LINK = new URL( "/dirty_dude.png" , import.meta.url ).href;
+ 
     return (
         <header>
             <div className="header-group">
