@@ -1,7 +1,6 @@
 #root {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     height: 100%;
 }
 
@@ -27,27 +26,41 @@ nav > a {
     border-width: 1px;
     border-color: var(--interface-color);
     max-width: 125px;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 a {
     font-weight: 500;
-    color: var(--secondary-text-color);
+    color: var(--secondary-text-color); 
     text-decoration: inherit;
 }
 
-a:hover {
+nav > a:hover {
+    color: color-mix(in srgb, var(--secondary-text-color) 100%, #fff 50%);
+    border-color: color-mix(
+        in srgb,
+        var(--secondary-text-color) 100%,
+        #fff 50%
+    );
+    box-shadow: var(--shadow-color) 2px 2px 2px;
+}
+
+nav > a:active {
     color: color-mix(in srgb, var(--secondary-text-color) 100%, #fff 50%);
     border-color: color-mix(
         in srgb,
         var(--secondary-text-color) 100%,
         #000 50%
     );
+    box-shadow: var(--shadow-color) -2px -2px 2px;
 }
 
 main {
     margin-top: 1em;
     margin-bottom: 1em;
     background-color: color-mix(in srgb, var percentage, color percentage);
+    max-width: 100%;
 }
 
 section {
