@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router";
 import Home from "./pages/Home.jsx";
 import Rules from "./pages/Rules.jsx";
+import Hall from "./pages/Hall.jsx";
 import "./App.css";
 import Header from "./components/Header.jsx";
 
@@ -14,6 +15,11 @@ export const ROUTES = [
         path: "/rules",
         label: "League Rules",
         component: Rules,
+    },
+    {
+        path: "/hall",
+        label: "Hall of Fame",
+        component: Hall,
     },
 ];
 

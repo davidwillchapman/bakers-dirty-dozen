@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm';
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function Rules() {
     const [readable, setReadable] = React.useState("");
@@ -15,9 +15,7 @@ export default function Rules() {
         <>
             <main>
                 <section>
-                    <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
-                    >
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
                         {readable}
                     </ReactMarkdown>
                 </section>

@@ -6,11 +6,12 @@ Web application to display the various league history and information for Baker'
 
 ## Basic Setup + POC (Unordered)
 
--   Frontend (React w/ Mui)
--   Backend (express.js)
--   Database Setup and Connection (Mongo or SQLITE)
--   CI/CD Workflow for Deployments (Github Actions)
--   Domain Connected
+-   Structure Largely Based on https://github.com/internetdrew/vite-express-vercel
+    -   Frontend (React w/ vanilla CSS)
+    -   Backend (express.js)
+-   Database Setup and Connection (Mongo, SQLITE, postgres)
+-   CI/CD Workflow for Deployments (Github Actions, Vercel)
+-   Domain Connected (Cloudflare)
 
 ## MVP
 
