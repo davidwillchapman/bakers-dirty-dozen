@@ -3,7 +3,7 @@ import React from "react";
 export default function Hall() {
     const [apiRes, setApiRes] = React.useState("");
 
-    const API_POC = "/api/";
+    const API_POC = "/api";
 
     React.useEffect(() => {
         fetch(API_POC).then((response) => setApiRes(response.text()));
