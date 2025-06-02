@@ -11,13 +11,11 @@ export async function getAllSeasons(): Promise<string> {
 }
 
 export async function getHallOfFame(): Promise<string> {
-    //const hallOfFame = await dbClient.getAll("teams");
     const hallOfFame = await dbClient.getAllByField("teams", "finalStanding", 1);
-
     return JSON.stringify(hallOfFame);
 }
 
-export async function getSeasonWeek(teamId: number): Promise<string> {
-    const teamData = await dbClient.getAllByField("teams", "id", teamId);
-    return JSON.stringify(teamData);
+export async function searchMatchups(params: Record<string, string | number>): Promise<string> {
+    const matchups = await dbClient.find("matchups", params);
+    return JSON.stringify(matchups);
 }

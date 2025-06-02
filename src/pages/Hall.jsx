@@ -4,8 +4,6 @@ import { getHallData } from "../utils/Data";
 export default function Hall() {
     const [hallData, setHallData] = React.useState([]);
 
-    const API_PATH = "/api/league";
-
     React.useEffect(() => {
         loadHallData();
     }, []);
