@@ -42,6 +42,8 @@ async function _getByField(
 }
 
 /**
+ * Brought to you by the fine people behind GitHub Copilot:
+ *
  * Dynamically finds records in a table based on provided search parameters.
  * Supports multiple fields, comparison operators, and ordering.
  *
