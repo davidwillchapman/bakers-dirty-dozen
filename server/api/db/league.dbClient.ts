@@ -1,7 +1,6 @@
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 import path from "path";
-import { p } from "react-router/dist/development/fog-of-war-BaM-ohjc.js";
 
 const DB_PATH = path.resolve(__dirname, "league.db");
 
