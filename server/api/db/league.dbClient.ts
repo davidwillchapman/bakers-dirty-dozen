@@ -31,13 +31,13 @@ async function _getAll(db: Database, table: string) {
     return db.all(`SELECT * FROM ${table}`);
 }
 
-async function _getByField(
+async function _getAllByField(
     db: Database,
     table: string,
     field: string,
     value: number | string
 ) {
-    return db.get(`SELECT * FROM ${table} WHERE ${field} = ?`, value);
+    return db.all(`SELECT * FROM ${table} WHERE ${field} = ?`, value);
 }
 
 /**
@@ -63,7 +63,7 @@ async function _getByField(
  *   // Find the highest scoring team in a given season
  *   await performDbOperation(_findBy, 'teams', { season: 2023 }, { orderBy: 'points DESC', limit: 1 });
  */
-async function _findBy(
+async function _find(
     db: Database,
     table: string,
     params: Record<string, any> = {},
@@ -133,14 +133,18 @@ export async function getAll(table: string) {
     return performDbOperation(_getAll, table);
 }
 
-export async function getByField(
+export async function getAllByField(
     table: string,
     field: string,
     value: number | string
 ) {
-    return performDbOperation(_getByField, table, field, value);
+    return performDbOperation(_getAllByField, table, field, value);
 }
 
-export async function findBy() {
-    // return performDbOperation(_findBy);
+export async function find(
+    table: string,
+    params: Record<string, any> = {},
+    options?: { orderBy?: string; limit?: number }
+) {
+    return performDbOperation(_find, table, params, options)
 }
