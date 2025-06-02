@@ -1,11 +1,19 @@
 import { Router, Request, Response } from "express";
-import { getSeason } from "./league.service";
+import * as leagueService from "./league.service";
 
 const leagueRouter = Router();
 
-leagueRouter.get("/season/:year", (req: Request, res: Response) => {
+leagueRouter.get("/season/:year", async (req: Request, res: Response) => {
     const seasonYear = parseInt(req.params.year);
-    res.json(getSeason(seasonYear));
+    res.json(JSON.parse(await leagueService.getSeason(seasonYear)));
+});
+
+leagueRouter.get("/seasons", async (req: Request, res: Response) => {
+    res.json(JSON.parse(await leagueService.getAllSeasons()));
+});
+
+leagueRouter.get("/hall", async (req: Request, res: Response) => {
+    res.json(JSON.parse(await leagueService.getHallOfFame()));
 });
 
 export default leagueRouter;

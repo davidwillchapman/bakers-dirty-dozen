@@ -1,4 +1,4 @@
-export const CREATE_SEASONS_TABLE = `
+export const CREATE_SEASONS_TABLE: string = `
     CREATE TABLE seasons (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     year INTEGER NOT NULL,
@@ -7,7 +7,7 @@ export const CREATE_SEASONS_TABLE = `
     platform TEXT NOT NULL
 )`;
 
-export const CREATE_TEAMS_TABLE = `
+export const CREATE_TEAMS_TABLE: string = `
     CREATE TABLE teams (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     platformUserId TEXT NOT NULL, 
@@ -21,7 +21,7 @@ export const CREATE_TEAMS_TABLE = `
     finalStanding INTEGER NOT NULL
 )`;
 
-export const CREATE_MATCHUPS_TABLE = `
+export const CREATE_MATCHUPS_TABLE: string = `
     CREATE TABLE matchups (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     year INTEGER NOT NULL,
