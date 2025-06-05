@@ -19,3 +19,8 @@ export async function searchMatchups(params: Record<string, string | number>): P
     const matchups = await dbClient.find("matchups", params);
     return JSON.stringify(matchups);
 }
+
+export async function getManagers(): Promise<string> {
+    const managers = await dbClient.getDistinctValues("teams", ["managerName"]);
+    return JSON.stringify(managers);
+}

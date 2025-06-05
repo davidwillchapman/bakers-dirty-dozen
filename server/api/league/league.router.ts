@@ -20,4 +20,8 @@ leagueRouter.post("/matchups/search", async (req: Request, res: Response) => {
     res.json(JSON.parse(await leagueService.searchMatchups(req.body)));
 });
 
+leagueRouter.get("/managers", async (req: Request, res: Response) => {
+    res.json(JSON.parse(await leagueService.getManagers()));
+});
+
 export default leagueRouter;

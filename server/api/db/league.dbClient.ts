@@ -129,6 +129,24 @@ async function _find(
     return db.all(query, values);
 }
 
+async function _getDistinctValues(
+    db: Database,
+    table: string,
+    fields: string[]
+): Promise<any[]> {
+    const fieldsToSelect = fields.length > 0 
+        ? fields.join(", ") 
+        : "*";
+    return db.all(`SELECT DISTINCT ${fieldsToSelect} FROM ${table}`);
+}
+
+export async function getDistinctValues(
+    table: string,
+    fields: string[]
+): Promise<any[]> {
+    return performDbOperation(_getDistinctValues, table, fields);
+}
+
 export async function getAll(table: string) {
     return performDbOperation(_getAll, table);
 }
