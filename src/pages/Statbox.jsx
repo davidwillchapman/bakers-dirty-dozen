@@ -1,11 +1,19 @@
 import React from "react";
+import { searchMatchupData } from "../utils/Data";
 
 export default function Statbox() {
     const [filter, setFilter] = React.useState({});
 
     React.useEffect(() => {
-
+        handleSearch();
     }, []);
+
+    const handleSearch = async () => {
+        let matchupData = await searchMatchupData({
+            year: 2022,
+        });
+        console.log(matchupData);
+    };
 
     return (
         <>

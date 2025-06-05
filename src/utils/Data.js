@@ -1,4 +1,4 @@
-import { getRequest } from "./Requests";
+import { getRequest, postRequest } from "./Requests";
 import { capitalizeWords } from "./Transformers";
 
 export async function getHallData() {
@@ -11,9 +11,19 @@ export async function getHallData() {
             managerName: capitalizeWords(entry.managerName),
         }));
         return hallData;
-    }
-    catch (error) {
+    } catch (error) {
         console.error("Error fetching hall data:", error);
+        throw error;
+    }
+}
+
+export async function searchMatchupData(data) {
+    const API_PATH = "/api/league/matchups/search";
+    try {
+        let matchupData = await postRequest(API_PATH, data);
+        return matchupData;
+    } catch (error) {
+        console.error("Error searching matchup data:", error);
         throw error;
     }
 }

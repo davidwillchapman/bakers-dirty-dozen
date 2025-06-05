@@ -16,4 +16,8 @@ leagueRouter.get("/hall", async (req: Request, res: Response) => {
     res.json(JSON.parse(await leagueService.getHallOfFame()));
 });
 
+leagueRouter.post("/matchups/search", async (req: Request, res: Response) => {
+    res.json(JSON.parse(await leagueService.searchMatchups(req.body)));
+});
+
 export default leagueRouter;
