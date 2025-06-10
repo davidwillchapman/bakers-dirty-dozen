@@ -21,9 +21,7 @@ nav {
 }
 
 nav > a {
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--interface-color);
+    border: 1px solid var(--interface-color);
     padding-left: 1em;
     padding-right: 1em;
 }
@@ -35,23 +33,15 @@ a {
 }
 
 nav > a:hover {
-    color: color-mix(in srgb, var(--secondary-text-color) 100%, #fff 50%);
-    border-color: color-mix(
-        in srgb,
-        var(--secondary-text-color) 100%,
-        #fff 50%
-    );
-    box-shadow: var(--shadow-color) 2px 2px 2px;
+    background-color: var(--interface-color-selected);
+    border: 1px solid var(--interface-color-selected);
+    border-radius: 15px;
 }
 
 nav > a:active {
-    color: color-mix(in srgb, var(--secondary-text-color) 100%, #fff 50%);
-    border-color: color-mix(
-        in srgb,
-        var(--secondary-text-color) 100%,
-        #000 50%
-    );
-    box-shadow: var(--shadow-color) -2px -2px 2px;
+    color: var(--primary-text-color);
+    border: 1px solid var(--interface-color-selected);
+    border-radius: 15px;
 }
 
 main {
