@@ -1,27 +1,28 @@
 :root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    /* global color pallet */
-    --background-color: hsl(0, 0%, 14%);
-    --interface-color: hsl(357, 80%, 41%);
-    --interface-color-selected: hsl(357, 80%, 51%);
-    --interface-decoration-color: hsl(51, 100%, 50%);
-    --shadow-color: hsl(0, 0%, 22%);
+  /* global color pallet */
+  --background-color: hsl(0, 0%, 14%);
+  --background-light-color: hsl(0, 0%, 40%);
+  --interface-color: hsl(357, 80%, 41%);
+  --interface-color-selected: hsl(357, 80%, 51%);
+  --interface-decoration-color: hsl(51, 100%, 50%);
+  --shadow-color: hsl(0, 0%, 22%);
 
-    --primary-text-color: hsl(0, 0%, 100%);
-    --secondary-text-color: hsl(0, 0%, 70%);
+  --primary-text-color: hsl(0, 0%, 100%);
+  --secondary-text-color: hsl(0, 0%, 70%);
 }
 
 body {
-    color: var(--primary-text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    min-width: 320px;
-    min-height: 100vh;
-    height: 1px;
-    box-sizing: border-box;
+  color: var(--primary-text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  height: 1px;
+  box-sizing: border-box;
 }

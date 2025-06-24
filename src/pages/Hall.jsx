@@ -1,75 +1,117 @@
 import React from "react";
 import { getHallData } from "../utils/Data";
-import { Card } from "../components/Card";
 
 export default function Hall() {
-    const [hallData, setHallData] = React.useState([]);
+  const [hallData, setHallData] = React.useState([]);
 
-    React.useEffect(() => {
-        loadHallData();
-    }, []);
+  React.useEffect(() => {
+    loadHallData();
+  }, []);
 
-    const loadHallData = async () => {
-        let data = await getHallData();
-        setHallData(data);
-    };
+  const loadHallData = async () => {
+    let data = await getHallData();
+    setHallData(data);
+  };
 
-    return (
-        <>
-            <main>
-                <section>
-                    <h2>Hall of Fame</h2>
-                    {hallData ? (
-                        <Championships data={hallData}></Championships>
-                    ) : (
-                        <p>Loading...</p>
-                    )}
-                </section>
-            </main>
-        </>
-    );
+  return (
+    <>
+      <main>
+        <section>
+          <h2>Hall of Fame</h2>
+          {hallData.length ? (
+            <Championships data={hallData}></Championships>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </section>
+      </main>
+    </>
+  );
 }
 
 function Championships(props) {
-    const [records, setRecords] = React.useState([]);
+  const [records, setRecords] = React.useState([]);
 
-    React.useEffect(() => {
-        parseRecords();
-    }, []);
+  React.useEffect(() => {
+    parseRecords();
+  }, []);
 
-    const parseRecords = async () => {
-        let temp = {};
-        console.log(props.data);
-        props.data.forEach((element) => {
-            console.log(element);
-            if (temp[element.managerName] != undefined) {
-                //add to object
-                temp[element.managerName] = [
-                    ...temp.element.managerName,
-                    { year: element.year, teamName: element.teamName },
-                ];
-            } else {
-                //inc object
-                temp[element.managerName] = [
-                    { year: element.year, teamName: element.teamName },
-                ];
-            }
-        });
-        console.log(temp);
-        setRecords(temp);
-    };
+  const parseRecords = async () => {
+    let temp = {};
+    props.data.forEach((element) => {
+      if (temp[element.managerName] != undefined) {
+        //add to object
+        temp[element.managerName] = [
+          ...temp[element.managerName],
+          { year: element.year, teamName: element.teamName },
+        ];
+      } else {
+        //inc object
+        temp[element.managerName] = [
+          { year: element.year, teamName: element.teamName },
+        ];
+      }
+    });
+    setRecords({ ...temp });
+  };
 
-    return (
-        <>
-            <ul>
-                {props.data.map((entry, index) => (
-                    <li key={index}>
-                        <strong>{entry.year}</strong> - {entry.teamName} -{" "}
-                        {entry.managerName}
-                    </li>
-                ))}
-            </ul>
-            {Object.keys(records)}
-        </>
-    );
+  return (
+    <div className="championships">
+      {Object.keys(records)
+        .sort((a, b) => records[b].length - records[a].length)
+        .map((key) => {
+          return (
+            <ChampionshipDisplay
+              managerName={key}
+              data={records[key]}
+            ></ChampionshipDisplay>
+          );
+        })}
+    </div>
+  );
+}
+
+function ChampionshipDisplay(props) {
+  return (
+    <div className="championship-line">
+      <div className="championship-manager">{props.managerName}:</div>
+      <div className="championship-years">
+        {props.data.map((element) => {
+          return (
+            <div className="championship-year">
+              <Trophy year={element.year}></Trophy>
+              <div className="championship-team">{element.teamName}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function Trophy(props) {
+  return (
+    <svg
+      id="svg"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      width="200"
+      height="200"
+      viewBox="0, 0, 400,400"
+      version="1.1"
+    >
+      <g id="svgg">
+        <path
+          id="path0"
+          d="M220.370 21.489 C 176.890 23.667,139.005 49.827,122.001 89.415 L 120.104 93.830 123.376 98.860 C 125.175 101.626,136.211 118.472,147.899 136.296 L 169.150 168.704 176.242 168.651 C 180.142 168.621,183.333 168.732,183.333 168.897 C 183.333 169.062,173.903 215.002,162.378 270.987 C 139.894 380.198,140.865 375.056,142.426 376.686 L 143.472 377.778 200.385 377.778 L 257.298 377.778 258.528 376.944 C 259.204 376.486,259.904 375.668,260.083 375.127 C 260.334 374.369,255.255 349.787,237.969 268.112 C 225.627 209.795,215.576 161.841,215.635 161.547 C 215.693 161.254,217.574 160.232,219.815 159.277 C 245.554 148.304,270.721 122.267,279.111 97.931 L 279.760 96.048 255.528 59.078 C 242.201 38.744,231.213 21.984,231.111 21.833 C 230.779 21.341,226.232 21.195,220.370 21.489 M245.815 23.832 C 248.638 28.586,283.910 81.789,284.103 81.584 C 285.174 80.446,286.446 67.121,286.180 59.815 C 285.739 47.673,284.127 41.410,280.744 38.691 C 273.063 32.516,262.150 27.243,251.219 24.424 C 246.454 23.196,245.366 23.077,245.815 23.832 M230.998 61.465 C 231.649 61.862,232.817 63.186,233.594 64.408 L 235.006 66.630 238.124 64.602 C 242.630 61.671,243.856 61.560,246.170 63.874 C 248.763 66.466,247.774 69.276,243.242 72.193 L 240.122 74.201 241.728 76.806 C 243.570 79.794,243.736 81.145,242.489 82.995 C 240.158 86.455,236.544 85.832,233.877 81.510 L 232.485 79.255 231.485 79.905 C 230.936 80.263,228.051 82.139,225.074 84.074 C 218.899 88.089,219.172 87.642,221.111 90.556 C 225.404 97.005,218.141 102.173,213.712 95.820 C 213.114 94.962,212.407 93.952,212.141 93.577 C 211.727 92.993,196.018 102.478,193.630 104.754 C 193.488 104.889,193.918 105.884,194.585 106.965 L 195.798 108.931 195.149 111.919 C 193.982 117.298,190.471 117.482,187.202 112.335 C 186.451 111.153,185.783 110.126,185.718 110.053 C 185.653 109.981,182.666 111.856,179.079 114.220 L 172.557 118.518 173.706 120.189 C 176.314 123.979,176.410 126.311,174.039 128.306 C 171.648 130.318,168.855 129.470,166.630 126.055 C 164.799 123.245,165.340 123.296,161.753 125.597 C 157.424 128.373,154.600 128.364,153.154 125.568 C 151.624 122.609,152.563 120.715,157.004 117.799 L 159.975 115.849 158.466 113.626 C 155.925 109.884,156.234 106.951,159.314 105.572 C 162.000 104.370,164.025 105.349,166.352 108.975 C 166.985 109.962,167.618 110.722,167.759 110.663 C 168.733 110.252,180.370 102.428,180.370 102.184 C 180.370 102.015,179.704 100.845,178.889 99.585 C 176.746 96.270,177.011 93.643,179.644 92.087 C 182.134 90.616,184.740 91.714,186.842 95.121 L 188.212 97.340 196.976 91.597 C 207.918 84.428,206.966 85.480,205.090 82.626 C 202.868 79.245,203.095 76.699,205.775 74.943 C 208.052 73.451,210.584 74.444,212.651 77.640 C 213.491 78.938,214.281 80.000,214.407 80.000 C 214.989 80.000,227.210 71.743,227.117 71.412 C 227.060 71.205,226.428 70.123,225.713 69.005 C 222.439 63.887,226.191 58.534,230.998 61.465 M115.731 109.110 C 115.600 109.702,115.421 110.415,115.333 110.696 C 112.846 118.586,113.484 139.175,116.493 148.148 C 117.709 151.775,130.776 159.811,141.481 163.517 C 145.437 164.886,154.086 167.148,154.352 166.883 C 154.465 166.770,123.051 118.561,117.190 109.851 L 115.968 108.036 115.731 109.110 M211.239 177.501 C 212.838 185.088,222.629 231.375,232.999 280.360 C 243.368 329.345,251.852 369.637,251.852 369.897 C 251.852 370.279,241.957 370.370,200.698 370.370 L 149.543 370.370 149.703 369.537 C 149.791 369.079,159.174 323.432,170.554 268.100 L 191.246 167.497 194.975 166.842 C 197.026 166.482,200.704 165.646,203.148 164.984 C 205.593 164.321,207.759 163.763,207.963 163.743 C 208.167 163.722,209.641 169.914,211.239 177.501 "
+          stroke="none"
+          fill="#000000"
+          fillRule="evenodd"
+        ></path>
+      </g>
+      <text fill="#ffffff" fontSize={"36px"} x="160" y="350">
+        {props.year}
+      </text>
+    </svg>
+  );
 }

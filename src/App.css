@@ -1,66 +1,100 @@
 #root {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 header {
-    background-color: var(--interface-color);
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    border-bottom-right-radius: 1em;
+  background-color: var(--interface-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 nav {
-    display: flex;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border-radius: 1em;
-    text-align: left;
+  display: flex;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 1em;
+  text-align: left;
 }
 
 nav > a {
-    border: 1px solid var(--interface-color);
-    padding-left: 1em;
-    padding-right: 1em;
+  border: 1px solid var(--interface-color);
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 a {
-    font-weight: 500;
-    color: var(--secondary-text-color);
-    text-decoration: inherit;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+  text-decoration: inherit;
 }
 
 nav > a:hover {
-    background-color: var(--interface-color-selected);
-    border: 1px solid var(--interface-color-selected);
-    border-radius: 15px;
+  background-color: var(--interface-color-selected);
+  border: 1px solid var(--interface-color-selected);
+  border-radius: 15px;
 }
 
 nav > a:active {
-    color: var(--primary-text-color);
-    border: 1px solid var(--interface-color-selected);
-    border-radius: 15px;
+  color: var(--primary-text-color);
+  border: 1px solid var(--interface-color-selected);
+  border-radius: 15px;
 }
 
 main {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    background-color: color-mix(in srgb, var percentage, color percentage);
-    max-width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: color-mix(in srgb, var percentage, color percentage);
+  max-width: 100%;
 }
 
 section {
-    margin: 0 1em;
-    padding-top: 1em;
+  margin: 0 1em;
+  padding-top: 1em;
 }
 
 .header-group {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header-image {
-    margin-right: 1em;
+  margin-right: 1em;
+}
+
+.championships {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.championship-line {
+  display: flex;
+  flex-direction: column;
+}
+
+.championship-manager {
+  padding: 2px;
+  margin: 2px;
+}
+
+.championship-years {
+  display: flex;
+  flex-direction: row;
+}
+
+.championship-year {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  background-color: var(--background-light-color);
+  margin: 2px;
+  flex: 1;
+}
+
+.championship-team {
+  padding: 2px;
 }
