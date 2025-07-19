@@ -66,35 +66,24 @@ section {
 }
 
 .championships {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
   justify-content: center;
 }
 
 .championship-line {
-  display: flex;
-  flex-direction: column;
 }
 
 .championship-manager {
-  padding: 2px;
-  margin: 2px;
 }
 
 .championship-years {
-  display: flex;
-  flex-direction: row;
 }
 
 .championship-year {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
   background-color: var(--background-light-color);
-  margin: 2px;
-  flex: 1;
 }
 
 .championship-team {
-  padding: 2px;
 }
