@@ -14,12 +14,12 @@ export const ROUTES = [
     },
     {
         path: "/rules",
-        label: "League Rules",
+        label: "Rules",
         component: Rules,
     },
     {
         path: "/hall",
-        label: "Hall of Fame",
+        label: "Records",
         component: Hall,
     },
     {
