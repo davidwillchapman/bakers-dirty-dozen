@@ -1,89 +1,118 @@
 #root {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 header {
-  background-color: var(--interface-color);
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  border-bottom-right-radius: 1em;
+    background-color: var(--interface-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border-bottom-right-radius: 1em;
 }
 
 nav {
-  display: flex;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  border-radius: 1em;
-  text-align: left;
+    display: flex;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    text-align: left;
 }
 
 nav > a {
-  border: 1px solid var(--interface-color);
-  padding-left: 1em;
-  padding-right: 1em;
+    border: 1px solid var(--interface-color);
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 a {
-  font-weight: 500;
-  color: var(--secondary-text-color);
-  text-decoration: inherit;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    text-decoration: inherit;
 }
 
 nav > a:hover {
-  background-color: var(--interface-color-selected);
-  border: 1px solid var(--interface-color-selected);
-  border-radius: 15px;
+    background-color: var(--interface-color-selected);
+    border: 1px solid var(--interface-color-selected);
+    border-radius: 15px;
 }
 
 nav > a:active {
-  color: var(--primary-text-color);
-  border: 1px solid var(--interface-color-selected);
-  border-radius: 15px;
+    color: var(--primary-text-color);
+    border: 1px solid var(--interface-color-selected);
+    border-radius: 15px;
 }
 
 main {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  background-color: color-mix(in srgb, var percentage, color percentage);
-  max-width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: var(--background-color);
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 section {
-  margin: 0 1em;
-  padding-top: 1em;
+    margin: 0 1em;
+    padding-top: 1em;
 }
 
 .header-group {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .header-image {
-  margin-right: 1em;
+    margin-right: 1em;
 }
 
 .championships {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  justify-content: center;
+    display: grid;
+    justify-content: space-evenly;
 }
 
 .championship-line {
+    background-color: var(--shadow-color);
+    padding: 1em;
+    margin-bottom: 1em;
 }
 
 .championship-manager {
+    background-color: var(--background-light-color);
+    border: 1px solid var(--background-light-color);
+    border-radius: 5px;
+    padding: 0 1em;
+    margin-bottom: 1em;
+    text-align: center;
 }
 
 .championship-years {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    column-gap: 1em;
+    row-gap: 1em;
 }
 
 .championship-year {
-  background-color: var(--background-light-color);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-light-color);
+    border: 1px solid var(--background-light-color);
+    border-radius: 5px;
+    align-items: center;
+    justify-self: stretch;
+    justify-content: space-between;
+}
+
+.championship-trophy {
+    width: 150px;
 }
 
 .championship-team {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 1em;
+    text-align: center;
 }
