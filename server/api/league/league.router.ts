@@ -4,24 +4,28 @@ import * as leagueService from "./league.service";
 const leagueRouter = Router();
 
 leagueRouter.get("/season/:year", async (req: Request, res: Response) => {
-    const seasonYear = parseInt(req.params.year);
-    res.json(JSON.parse(await leagueService.getSeason(seasonYear)));
+  const seasonYear = parseInt(req.params.year);
+  res.json(JSON.parse(await leagueService.getSeason(seasonYear)));
 });
 
 leagueRouter.get("/seasons", async (req: Request, res: Response) => {
-    res.json(JSON.parse(await leagueService.getAllSeasons()));
+  res.json(JSON.parse(await leagueService.getAllSeasons()));
 });
 
 leagueRouter.get("/hall", async (req: Request, res: Response) => {
-    res.json(JSON.parse(await leagueService.getHallOfFame()));
+  res.json(JSON.parse(await leagueService.getHallOfFame()));
 });
 
 leagueRouter.post("/matchups/search", async (req: Request, res: Response) => {
-    res.json(JSON.parse(await leagueService.searchMatchups(req.body)));
+  res.json(JSON.parse(await leagueService.searchMatchups(req.body)));
 });
 
 leagueRouter.get("/managers", async (req: Request, res: Response) => {
-    res.json(JSON.parse(await leagueService.getManagers()));
+  res.json(JSON.parse(await leagueService.getManagers()));
+});
+
+leagueRouter.get("/matchupTypes", async (req: Request, res: Response) => {
+  res.json(JSON.parse(await leagueService.getMatchupTypes()));
 });
 
 export default leagueRouter;
