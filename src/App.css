@@ -58,6 +58,10 @@ section {
     padding-top: 1em;
 }
 
+button {
+    cursor: pointer;
+}
+
 .header-group {
     display: flex;
     align-items: center;
@@ -65,6 +69,33 @@ section {
 
 .header-image {
     margin-right: 1em;
+}
+
+.records-tab {
+    background-color: var(--shadow-color);
+    padding: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: stretch;
+    justify-content: space-between;
+}
+
+.records-tab-button {
+    background-color: var(--shadow-color);
+    border: 1px solid var(--shadow-color);
+    border-radius: 5px;
+    padding: 0 1em;
+    margin: 0 1em;
+    text-align: center;
+    color: var(--secondary-text-color);
+}
+
+.records-tab-button:hover {
+    background-color: var(--background-light-color);
+    border: 1px solid var(--background-light-color);
+    border-radius: 15px;
 }
 
 .championships {

@@ -11,13 +11,17 @@ export default function Home() {
                         Over a decade of fantasy football results coming
                         together in a single place.
                     </p>
-                    <p>Stay tuned for more functionality coming soon: </p>
+                    <p>Stay tuned for more features to come in the future:</p>
                     <ul>
-                        <li>Hall of Fame</li>
-                        <li>Manager and Team Info</li>
-                        <li>Stat Sandbox</li>
+                        <li>Manager and Season Data</li>
+                        <li>Expanded Hall of Fame</li>
                         <li>Rivalry Rankings</li>
+                        <li>Stat Sandbox</li>
                     </ul>
+                    <p>
+                        Reach out to David if you have any feature requests or
+                        suggestions.
+                    </p>
                 </section>
             </main>
         </>
