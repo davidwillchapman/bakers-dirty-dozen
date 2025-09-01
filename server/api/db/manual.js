@@ -1,8 +1,7 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
-import path from "path";
 
-const DB_PATH = path.resolve(__dirname, "league.db");
+const DB_PATH = "./league.db";
 
 async function connect() {
     return await open({

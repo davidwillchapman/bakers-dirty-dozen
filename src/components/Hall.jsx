@@ -72,19 +72,21 @@ function ChampionshipDisplay(props) {
         <div className="championship-line">
             <div className="championship-manager">{props.managerName}</div>
             <div className="championship-years">
-                {props.data.map((element) => {
-                    return (
-                        <div className="championship-year">
-                            <Trophy
-                                className="championship-trophy"
-                                year={element.year}
-                            ></Trophy>
-                            <div className="championship-team">
-                                {element.teamName}
+                {props.data
+                    .sort((a, b) => a.year - b.year)
+                    .map((element) => {
+                        return (
+                            <div className="championship-year">
+                                <Trophy
+                                    className="championship-trophy"
+                                    year={element.year}
+                                ></Trophy>
+                                <div className="championship-team">
+                                    {element.teamName}
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
             </div>
         </div>
     );
